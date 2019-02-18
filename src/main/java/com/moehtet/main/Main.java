@@ -13,7 +13,6 @@ public class Main {
 		s1.setAddress("Yangon");
 		stu.createStudent(s1);
 		Student s2 = new Student();
-		stu.createStudent(s2);
 		s2.setStudId(2);
 		s2.setName("Kyaw Kyaw");
 		s2.setAddress("Yangon");
