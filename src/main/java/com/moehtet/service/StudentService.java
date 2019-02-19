@@ -12,9 +12,7 @@ import com.moehtet.mapper.StudentMapper;
 import com.moehtet.util.MybatisSqlSessionFactory;
 
 public class StudentService {
-	private Logger logger= LoggerFactory.getLogger(getClass());
 	public List<Student> getAllStudent(){
-		logger.debug("Select all students");
 		SqlSession sqlSession= MybatisSqlSessionFactory.openSession();
 		try {
 			StudentMapper studentMapper=sqlSession.getMapper(StudentMapper.class);
@@ -28,7 +26,6 @@ public class StudentService {
 		return null;
 	}
 	public Student getStudent(int id) {
-		logger.debug("Select Student by ID:{}",id);
 		SqlSession sqlSession= MybatisSqlSessionFactory.openSession();
 		try {
 			StudentMapper studentMapper= sqlSession.getMapper(StudentMapper.class);
@@ -39,7 +36,6 @@ public class StudentService {
 		}
 	}
 	public void createStudent(Student student) {
-		logger.debug("Create Student :"+student.getName());
 		SqlSession sqlSession= MybatisSqlSessionFactory.openSession();
 		try {
 			StudentMapper studentMapper= sqlSession.getMapper(StudentMapper.class);

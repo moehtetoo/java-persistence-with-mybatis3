@@ -1,4 +1,4 @@
-package com.moehtet.util;
+package com.moehtet.relationship.onetoone.simple.util;
 
 import java.io.InputStream;
 
@@ -7,14 +7,14 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-public class MybatisSqlSessionFactory {
+public class SimpleSqlSessionFactory {
 	private static SqlSessionFactory sqlSessionFactory;
-	
+
 	public static SqlSessionFactory getSqlSessionFactory() {
-		if (sqlSessionFactory==null) {
+		if (sqlSessionFactory == null) {
 			InputStream inputStream;
 			try {
-				inputStream = Resources.getResourceAsStream("mybatis-config.xml");
+				inputStream = Resources.getResourceAsStream("mybatis-config-simple.xml");
 				sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -22,6 +22,7 @@ public class MybatisSqlSessionFactory {
 		}
 		return sqlSessionFactory;
 	}
+
 	public static SqlSession openSession() {
 		return getSqlSessionFactory().openSession();
 	}
